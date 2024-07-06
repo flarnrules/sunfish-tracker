@@ -1,5 +1,5 @@
 // Function to initialize the map
-function initializeMap() {
+function initializeMap(apiKey) {
     const adamsLakeCoordinates = { lat: 41.5281, lng: -85.3772 };
     const map = new google.maps.Map(document.getElementById('map'), {
         zoom: 16,
@@ -28,7 +28,7 @@ function initializeMap() {
         .catch(error => console.error('Error fetching GPS data:', error));
 }
 
-// Function to load the Google Maps script asynchronously
+// Load Google Maps script asynchronously
 function loadScript(apiKey) {
     const script = document.createElement('script');
     script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initializeMap`;
@@ -37,8 +37,8 @@ function loadScript(apiKey) {
     document.head.appendChild(script);
 }
 
-// Fetch API key from the JSON file and load the map script
-fetch('api-key.json')
+// Fetch API key from the serverless function and load the map script
+fetch('/api/getApiKey')
     .then(response => response.json())
     .then(data => {
         if (data.apiKey) {

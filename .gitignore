@@ -1,1 +1,3 @@
-public/api-key.json
+api-key.json
+.env
+.vercel
