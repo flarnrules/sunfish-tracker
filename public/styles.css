@@ -1,9 +1,52 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    margin: 0.5em 0;
+}
+
+#map-container {
+    width: 90vw;
+    max-width: 90vh; /* This ensures the container is square */
+    height: 90vw;
+    max-height: 90vh; /* This ensures the container is square */
+    position: relative;
+    flex-grow: 1; /* Allow the map container to grow */
 }
 
 #map {
-    height: 500px;
     width: 100%;
+    height: 100%;
+}
+
+footer {
+    width: 100%;
+    padding: 1em;
+    background-color: #f1f1f1;
+}
+
+footer a {
+    margin: 0 1em;
+    text-decoration: none;
+    color: #007BFF;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    #map-container {
+        width: 80vw;
+        height: 80vw;
+    }
 }
